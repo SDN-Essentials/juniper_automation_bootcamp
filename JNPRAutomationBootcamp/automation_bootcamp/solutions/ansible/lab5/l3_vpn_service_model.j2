@@ -1,0 +1,29 @@
+{% for data in item.itervalues() %}
+interfaces {
+    {{ data.interface }} {
+        unit {{ data.unit }} {
+            description {{ data.interface_description }};
+            family inet {
+                address {{ data.interface_ipv4 }};
+            }
+        }
+    }
+}
+
+routing-instances {
+    {{ data.vrf_name }} {
+        instance-type {{ data.vrf_type }};
+        interface {{ data.interface }}.{{ data.unit }};
+        route-distinguisher {{ data.route_distinguisher }};
+        vrf-target {{ data.vrf_target }};
+        vrf-table-label;
+        routing-options {
+            static {
+{% for route, value in data.static_routes.iteritems() %}
+                route {{ value.prefix }} next-hop {{ value.next_hop }};
+{% endfor %}
+            }
+        }
+    }
+}
+{% endfor %}

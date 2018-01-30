@@ -1,0 +1,22 @@
+BGPNeighborTable:
+  rpc: get-bgp-neighbor-information
+  item: bgp-peer
+  key: peer-address
+  view: BGPNeighborView
+
+BGPNeighborView:
+  fields:
+    local_address: local-address
+    peer_address: peer-address
+    local_as: local-as
+    peer_as: peer-as
+    peer_type: peer-type
+    peer_state: peer-state
+    nlri_type_peer: nlri-type-peer
+    nlri_type_session: nlri-type-session
+  groups:
+    bgp_option_information: bgp-option-information
+  fields_bgp_option_information: 
+    export_policy: export-policy
+    preference: preference
+    holdtime: holdtime

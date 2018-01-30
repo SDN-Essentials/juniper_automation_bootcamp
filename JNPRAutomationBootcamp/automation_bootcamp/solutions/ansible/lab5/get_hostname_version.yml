@@ -1,0 +1,29 @@
+---
+  ###########################################################
+  #    Playbook to retrieve hostname and software version   #
+  ###########################################################
+  - name: Retrieve facts from Junos devices
+    hosts: VSRXS
+    roles:
+      - Juniper.junos
+    connection: local
+    gather_facts: no
+
+    vars_prompt:
+      - name: USERNAME
+        prompt: Username
+        private: no
+      - name: DEVICE_PASSWORD
+        prompt: Device password
+        private: yes
+
+    tasks:
+      - name: Retrieve information from devices running Junos OS
+        junos_get_facts:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+        register: junos
+
+      - name: Print Junos facts
+        debug: msg="Device hostname {{junos.facts.hostname}}, Device Serial {{junos.facts.serialnumber}}, Device Software Version {{junos.facts.version}}"

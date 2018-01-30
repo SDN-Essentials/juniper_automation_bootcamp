@@ -1,0 +1,35 @@
+---
+  # The key for each mapping is a device hostname
+   R1:
+     ip: 10.11.12.1/32
+     mac_address: 08:00:27:ca:b7:78
+   R2:
+     ip: 10.11.12.2/32
+     mac_address: 08:00:27:ca:b8:79
+   R3:
+     ip: 10.11.13.1 255.255.255.255
+     mac_address: CE45_948A_ABC1
+   R4:
+     ip: 10.11.13.2 255.255.255.255
+     mac_address: CE45_948A_AC15
+   R5:
+     ip: 10.11.13.3 255.255.255.255
+     mac_address: 0098.123D.987A
+   R6:
+     ip: 10.11.13.4 255.255.255.255
+     mac_address: 0098.123D.987B
+
+---
+  # The key for each mapping is a device hostname
+   SW1:
+     ip: 10.11.13.101/32
+     mac_address: 00-AB-45-FF-95-81
+   SW2:
+     ip: 10.11.13.102/32
+     mac_address: 00-AB-45-FF-95-82
+   SW3:
+     ip: 10.11.13.103 255.255.255.255
+     mac_address: LKDSJFV@((()))
+   SW4:
+     ip: 10.11.13.104 255.255.255.255
+     mac_address: 0*+FJFE888EW.

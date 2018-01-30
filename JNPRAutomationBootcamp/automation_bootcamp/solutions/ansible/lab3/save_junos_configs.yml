@@ -1,0 +1,38 @@
+---
+  ###########################################################
+  #             Playbook to save configurations             #
+  ###########################################################
+  - name: Retrieve facts from Junos devices
+    hosts: VSRXS
+    roles:
+      - Juniper.junos
+    connection: local
+    gather_facts: yes
+
+    vars_prompt:
+      - name: USERNAME
+        prompt: User name
+        private: no
+      - name: DEVICE_PASSWORD
+        prompt: Device password
+        private: yes
+
+    tasks:
+      - name: Retrieve information from devices running Junos OS
+        junos_get_facts:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+        register: junos
+
+      - name: Print Junos facts
+        debug: msg="{{junos.facts}}"
+
+      # Run as sudo
+      - name: Retrieve configuration from Junos devices
+        junos_get_config:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+          dest="{{ junos.facts.hostname }}.conf"
+          logfile="junos_config.log"

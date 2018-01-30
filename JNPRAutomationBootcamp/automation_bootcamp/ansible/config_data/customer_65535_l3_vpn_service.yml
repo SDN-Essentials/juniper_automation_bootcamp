@@ -1,0 +1,35 @@
+---
+service_data:
+  - R1:
+      interface: ge-0/0/3
+      interface_description: "\"To Customer 65535\""
+      unit: 0
+      interface_ipv4: 172.15.0.1/24
+      vrf_name: CUSTOMER_65535
+      vrf_type: vrf
+      route_distinguisher: 10.11.12.2:65535
+      vrf_target: target:65412:65535
+      static_routes:
+        route1:
+            prefix: 192.168.23.0/24
+            next_hop: 172.15.0.5
+        route2:
+            prefix: 192.168.24.0/24
+            next_hop: 172.15.0.5
+
+  - R2:
+      interface: ge-0/0/2
+      interface_description: "\"To Customer 65535\""
+      unit: 0
+      interface_ipv4: 192.168.10.1/24
+      vrf_name: CUSTOMER_65535
+      vrf_type: vrf
+      route_distinguisher: 10.11.12.2:65535
+      vrf_target: target:65412:65535
+      static_routes:
+        route1:
+          prefix: 192.168.25.0/24
+          next_hop: 192.168.10.5
+        route2:
+          prefix: 192.168.26.0/24
+          next_hop: 192.168.10.5

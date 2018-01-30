@@ -1,0 +1,63 @@
+---
+  ###########################################################
+  #           Playbook to deploy Jinja2 templates           #
+  ###########################################################
+  - name: Deploy Junos configurations from templates
+    hosts: VSRXS
+    roles:
+      - Juniper.junos
+    connection: local
+    gather_facts: no
+
+    vars_prompt:
+      - name: USERNAME
+        prompt: User name
+        private: no
+      - name: DEVICE_PASSWORD
+        prompt: Device password
+        private: yes
+
+    vars_files:
+      - config_data/customer_65535_l3_vpn_service.yml
+
+    tasks:
+      - name: Retrieve information from devices running Junos OS
+        junos_get_facts:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+        register: junos
+
+      - name: Print Junos facts
+        debug: msg="{{junos.facts}}"
+
+      - name: Create Junos configurations
+        template: src="l3_vpn_service_model.j2" dest="config/{{ junos.facts.hostname }}.conf"
+        when: junos.facts.hostname == item.iterkeys().next()
+        with_items: service_data
+
+      - name: Deploy configuration to R1
+        junos_install_config:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+          file="config/{{ junos.facts.hostname }}.conf"
+          diffs_file="r1_config.log"
+          confirm=1
+        when: junos.facts.hostname == "R1"
+
+      - name: Deploy configuration to R2
+        junos_install_config:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+          file="config/{{ junos.facts.hostname }}.conf"
+          diffs_file="r2_config.log"
+          confirm=1
+        when: junos.facts.hostname == "R2"
+
+      - name: Confirm configuration change on Junos device
+        junos_commit:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
