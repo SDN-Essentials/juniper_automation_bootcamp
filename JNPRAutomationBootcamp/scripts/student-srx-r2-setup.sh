@@ -7,6 +7,7 @@ delete security zones security-zone untrust screen
 delete security screen ids-option untrust-screen
 delete security zones security-zone trust
 delete security zones security-zone untrust
+delete security
 set system login user netconf class super-user authentication encrypted-password "$1$b1e7j6ek$4d/RrS9Zw/n6PrmyxKdN7."
 set interfaces lo0.0 family inet address 10.11.12.2/32
 set interfaces ge-0/0/1 unit 0 family mpls

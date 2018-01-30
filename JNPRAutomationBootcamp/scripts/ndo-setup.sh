@@ -28,7 +28,7 @@ sudo ifup eth1
 
 sudo apt-get -y update
 sudo apt-get install -y build-essential
-sudo apt-get -y install python-pip python-dev build-essential 
+sudo apt-get -y install python-pip python-dev build-essential
 sudo pip install --upgrade pip
 sudo pip install --upgrade setuptools
 sudo pip install -U junos-ezn

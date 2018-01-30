@@ -4,8 +4,8 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-#require "vagrant-host-shell"
-#require "vagrant-junos"
+require "vagrant-host-shell"
+require "vagrant-junos"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
@@ -36,7 +36,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #VM2
   #Student SRX R1
   config.vm.define "srx_r1" do |srx|
-    srx.vm.box = "juniper/ffp-12.1X47-D20.7"
+    srx.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
     srx.vm.hostname = "R1"
     srx.vm.network "private_network",
                    ip: "10.10.0.10",
@@ -73,7 +73,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #VM 3
   #Student SRX R2
   config.vm.define "srx_r2" do |srx|
-    srx.vm.box = "juniper/ffp-12.1X47-D20.7"
+    srx.vm.box = "juniper/ffp-12.1X47-D15.4-packetmode"
     srx.vm.box_version = ">= 0.5.0"
     srx.vm.hostname = "R2"
     srx.vm.network "private_network",
@@ -109,19 +109,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #VM 4
   #Private server 1
   config.vm.define "private_server_1", primary: true do |ndo|
-    ndo.vm.box = "juniper/netdevops-ubuntu1404-headless"
+    ndo.vm.box = "ubuntu/trusty64"
     ndo.vm.box_version = ">= 0.2.6"
     ndo.vm.hostname = "NetDevOps-Private-1"
     ndo.vm.network "private_network",
                    ip: "192.168.10.20",
                    virtualbox__intnet: "NetDevOps-Private"
     ndo.vm.synced_folder ".", "/vagrant", disabled: false
-  
+
     ndo.vm.provider "virtualbox" do |v|
         v.gui = false
         v.customize ["modifyvm", :id, "--memory", "512"]
     end
-  
+
     ndo.vm.provision "shell" do |s|
       s.path = "scripts/ndopri-setup-1.sh"
     end
@@ -130,14 +130,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #VM 5
   #Private server 2
   config.vm.define "private_server_2", primary: true do |ndo|
-    ndo.vm.box = "juniper/netdevops-ubuntu1404-headless"
+    ndo.vm.box = "ubuntu/trusty64"
     ndo.vm.box_version = ">= 0.2.6"
     ndo.vm.hostname = "NetDevOps-Private-2"
     ndo.vm.network "private_network",
                    ip: "172.15.0.20",
                    virtualbox__intnet: "NetDevOps-StudentInternal-2"
     ndo.vm.synced_folder ".", "/vagrant", disabled: false
-  
+
     ndo.vm.provider "virtualbox" do |v|
         v.gui = false
         v.customize ["modifyvm", :id, "--memory", "512"]
