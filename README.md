@@ -58,6 +58,35 @@ $ cd ~/git <br />
 $ git clone https://github.com/darien-hirotsu/JNPRAutomationBootcamp  <br />
 $ cd JNPRAutomationBootcamp/ <br />
  
+<p><strong>Step 6. Install the required plugins to load the topology </strong></p>
+ 
+$ vagrant plugin install vagrant-host-shell <br />
+$ vagrant plugin install vagrant-junos <br />
+
+<p><strong>Step 7. Launch the required topology  </strong></p>
+ 
+Launch the network topology using the Vagrant tool. This may take several minutes to complete. If this is the first time launching the appropriate VMs your host must download the required files and install each of the components. <br />
+ 
+ $ vagrant up
+
+<p><strong>Step 8. Verify Access </strong></p>
+
+Once Vagrant launches all components, try connecting to one of the VMs to ensure the topology has launched correctly.
+
+$ vagrant ssh ndo
+
+<p><strong>Step 9. Check the Python and Ansible Version </strong></p>
+
+$ ansible --version <br />
+ansible 2.3.2.0 <br />
+  config file = <br />
+  configured module search path = [u'/etc/ansible/roles/'] <br />
+  python version = 2.7.6 (default, Nov 23 2017, 15:49:48) [GCC 4.8.4] <br />
+  
+  $ python --version <br />
+  Python 2.7.6
+
+
 
 # Accessing Virtual Machines
 
@@ -73,5 +102,4 @@ vagrant ssh private_server_2  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
  <p>
 
 
-
-iv.      Who to contact if you need help?
+## Who to contact if you need help ?
