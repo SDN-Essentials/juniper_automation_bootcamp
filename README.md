@@ -12,11 +12,11 @@ This repository contains all the necessary scripts for the Juniper Automation Bo
 
 This portion of the lab setup document walks through the steps to get your local environment up and running for the Junos Automation Bootcamp using Vagrant to setup the necessary lab virtual-machines.
 
-<b>Step 1. Install Vagrant<b\>
+<p><strong> Step 1. Install Vagrant </strong></p>
 
 This lab shall use Vagrant 2.0.1. Download the installer from the link below for your platform Use .dmg for a Mac and .msi for Windows. Run through the installer which handles any relevant dependencies. You may skip this step if you already have Vagrant installed.
 
-<b>Step 2. Install VirtualBox<b\>
+<b>Step 2. Install VirtualBox <b\>
 
 This lab requires using VirtualBox 5.0 (not the newest 5.1). Vagrant does not recognize VirtualBox 5.1 as a provider, so your environment will not build on VirtualBox 5.1 or later. You may skip this step if you already have VirtualBox installed
 
