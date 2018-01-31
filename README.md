@@ -28,8 +28,32 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_5_0
  appropriate link to install the tool for your appropriate platform. Use the latest versions available.
  You may skip this step if you already have Git installed.
  
- • &nbsp;&nbsp; For a Mac:
-       &nbsp;&nbsp; o &nbsp; http://git-scm.com/download/mac
+ * &nbsp;&nbsp; For a Mac: <br />
+ &nbsp;&nbsp; * &nbsp; http://git-scm.com/download/mac
+ *  Note: For Mac users, you may be prompted to install XCode command line tools to install git. <br />
+  https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+  
+  * For Windows: <br />
+  https://git-scm.com/download/win
+  * Note: <br />
+  For Windows users, the installation of Git (if you haven't completed this prior to the class) also installs a bash-list shell. Be sure to use this for the lab and launching Vagrant.
+ 
+ <b>Step 4.  Verify Vagrant and Utilities
+ 
+Next, verify that you have the tools required.
+
+$ git --version <br />
+git version 2.15.0 <br />
+$ vagrant --version <br />
+Vagrant 2.0.1
+
+<b>Step 5. Clone the Appropriate VagrantFile and Code Examples
+ 
+ Navigate to a directory where you want to stage your sample code. Create the directory if needed. Clone the Vagrant file and required installers to build the topology. Change to the repository directory.
+ 
+ * Optional Step Below
+ 
+ 
 
 # Accessing Virtual Machines
 
