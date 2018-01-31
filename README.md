@@ -29,6 +29,7 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_5_0
  You may skip this step if you already have Git installed.
  
  • &nbsp;&nbsp; For a Mac:
+       &nbsp;&nbsp; o &nbsp; http://git-scm.com/download/mac
 
 # Accessing Virtual Machines
 
@@ -45,5 +46,4 @@ vagrant ssh private_server_2  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 
 
 
-iii.      How do I make this work?
 iv.      Who to contact if you need help?
