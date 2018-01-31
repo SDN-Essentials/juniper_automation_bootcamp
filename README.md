@@ -29,7 +29,7 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_5_0
  You may skip this step if you already have Git installed.
  
  * &nbsp;&nbsp; For a Mac: <br />
- &nbsp;&nbsp; * &nbsp; http://git-scm.com/download/mac
+  http://git-scm.com/download/mac
  *  Note: For Mac users, you may be prompted to install XCode command line tools to install git. <br />
   https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
   
