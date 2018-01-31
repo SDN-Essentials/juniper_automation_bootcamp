@@ -51,14 +51,18 @@ Vagrant 2.0.1
  
  Navigate to a directory where you want to stage your sample code. Create the directory if needed. Clone the Vagrant file and required installers to build the topology. Change to the repository directory.
  
- * Optional Step Below
- 
+*  Optional Step Below <br />
+$ mkdir ~/git <br />
+* Optional Step Above <br />
+$ cd ~/git <br />
+$ git clone https://github.com/darien-hirotsu/JNPRAutomationBootcamp  <br />
+$ cd JNPRAutomationBootcamp/ <br />
  
 
 # Accessing Virtual Machines
 
 Using Vagrant within host machine
-No IP addresses or passwords are required!  
+No IP addresses or passwords are required!
 
 <p>
 vagrant ssh ndo               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Used to access the host where you run scripts and Ansible <br />
