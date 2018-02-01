@@ -91,8 +91,7 @@ ansible 2.3.2.0 <br />
 
 # Accessing Virtual Machines
 
-Using Vagrant within host machine
-No IP addresses or passwords are required!
+<p><strong>Using Vagrant within host machine</strong></p>
 
 <p>
 vagrant ssh ndo               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Used to access the host where you run scripts and Ansible <br />
@@ -101,6 +100,14 @@ vagrant ssh srx_r2            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 vagrant ssh private_server_1  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Used to access private_server_1 to generate ping traffic <br />
 vagrant ssh private_server_2  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Used to access private_server_2 to generate ping traffic <br />
  <p>
+
+<p><strong> Credentials to Devices </strong></p>
+
+NDO VM Credentials: vagrant/vagrant <br />
+SRX VM Credentials: netconf/test123 <br />
+Private Server VM Credentials: vagrant/vagrant
+
+  
 
 
 ## Who to contact if you need help ?
