@@ -28,6 +28,7 @@ sudo ifup eth1
 
 sudo apt-get update
 sudo apt-get install -y python-dev libxml2-dev python-pip libxslt-dev build-essential libssl-dev libffi-dev libffi-dev
+sudo apt-get install sqlite3 libsqlite3-dev
 sudo pip install --upgrade setuptools
 sudo pip install --upgrade setuptools pip
 sudo pip install markupsafe
