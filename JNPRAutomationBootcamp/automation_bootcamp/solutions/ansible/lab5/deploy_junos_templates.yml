@@ -32,16 +32,16 @@
         debug: msg="{{junos.facts}}"
 
       - name: Create Junos configurations
-        template: src="l3_vpn_service_model.j2" dest="config/{{ junos.facts.hostname }}.conf"
+        template: src="l3_vpn_service_model.j2" dest="../config/{{ junos.facts.hostname }}.conf"
         when: junos.facts.hostname == item.iterkeys().next()
-        with_items: service_data
+        with_items: "{{service_data}}"
 
       - name: Deploy configuration to R1
         junos_install_config:
           host={{ inventory_hostname }}
           user={{ USERNAME }}
           passwd={{ DEVICE_PASSWORD }}
-          file="config/{{ junos.facts.hostname }}.conf"
+          file="../config/{{ junos.facts.hostname }}.conf"
           diffs_file="r1_config.log"
           confirm=1
         when: junos.facts.hostname == "R1"
@@ -51,7 +51,7 @@
           host={{ inventory_hostname }}
           user={{ USERNAME }}
           passwd={{ DEVICE_PASSWORD }}
-          file="config/{{ junos.facts.hostname }}.conf"
+          file="../config/{{ junos.facts.hostname }}.conf"
           diffs_file="r2_config.log"
           confirm=1
         when: junos.facts.hostname == "R2"
