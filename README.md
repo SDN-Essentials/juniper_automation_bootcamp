@@ -56,7 +56,7 @@ Vagrant 2.0.1
 $ mkdir ~/git <br />
 * Optional Step Above <br />
 $ cd ~/git <br />
-$ git clone https://github.com/darien-hirotsu/JNPRAutomationBootcamp  <br />
+$ git clone https://github.com/SDN-Essentials/juniper_automation_bootcamp.git  <br />
 $ cd JNPRAutomationBootcamp/ <br />
  
 <p><strong>Step 6. Install the required plugins to load the topology </strong></p>
