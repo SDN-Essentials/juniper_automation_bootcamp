@@ -111,3 +111,5 @@ Private Server VM Credentials: vagrant/vagrant
 
 
 ## Who to contact if you need help ?
+
+email - hisaza@sdnessentials.com
