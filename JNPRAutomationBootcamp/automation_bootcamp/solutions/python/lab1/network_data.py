@@ -36,7 +36,7 @@ def normalize_macs(network_data):
     # Step 1.2
     for document in network_data:
         for hostname, device_data in document.iteritems():
-            print(hostname, device_data)
+            # print(hostname, device_data)
             # Step 1.3
             if mac_regex.match(device_data['mac_address']):
                 # Step 1.4
@@ -74,7 +74,7 @@ def main():
     host_macs = normalize_macs(network_data)
     # print(host_macs)
     sorted_macs = sort_macs(host_macs)
-    # print(sorted_macs)
+    print(sorted_macs)
 
 if __name__ == '__main__':
     main()
