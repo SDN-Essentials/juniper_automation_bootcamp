@@ -1,0 +1,13 @@
+# tasks file for juniper_devices
+- name: Building system configuration for Juniper devices
+  template:
+    src: "system.conf.j2"
+    dest: "/tmp/{{ inventory_hostname }}.system.conf"
+ 
+- name: Pushing config
+  junos_install_config:
+    host: "{{ inventory_hostname }}"
+    user: "{{username}}"
+    passwd: "{{password}}"
+    file: "/tmp/{{ inventory_hostname }}.system.conf"
+    overwrite: false

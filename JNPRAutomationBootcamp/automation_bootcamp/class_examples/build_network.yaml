@@ -1,0 +1,13 @@
+- name: Create and apply Juniper configurations
+  hosts: datacenter01
+  connection: local
+  gather_facts: no
+  roles:
+    - juniper_devices
+  vars_prompt:
+    - name: username
+      prompt: User name
+      private: no
+    - name: password
+      prompt: Device password
+      private: yes
