@@ -12,4 +12,4 @@ sudo pip install --upgrade setuptools pip
 sudo pip install markupsafe
 sudo pip install cryptography==1.2.1 junos-eznc ansible==2.3.2.0 jxmlease
 sudo ansible-galaxy --force -c install Juniper.junos,1.4.3
-chown -R chuck:chuck
+sudo chown -R chuck:chuck ~/.ansible
