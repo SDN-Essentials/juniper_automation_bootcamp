@@ -17,6 +17,7 @@ def main():
     pyez_user = 'netconf'
     pyez_pass = 'test123'
     # Step 1.3
+    # Raw versus non... Forgot.
     link_down = re.compile('(\w{1,3}\s{1,3}\d{1,2}\s{1,3}\d{1,2}:\d{1,2}:\d{1,2}).*SNMP_TRAP_LINK_DOWN.*ifName ([gax]e-\d{1,2}\/\d{1,2}\/\d{1,2})\n')
     for router in routers:
         try:
@@ -26,18 +27,20 @@ def main():
             logs = device.rpc.get_log(filename='messages')
             # Step 1.2
             # print(type(logs))
+            # print(dir(logs))
+
             for log_content in logs.iter("file-content"):
                 # print(type(log_content))
-                print(dir(log_content))
-                # print(log_content.text)
+                # print(dir(log_content))
+                print(log_content.text)
                 messages = link_down.finditer(log_content.text)
                 # Step 1.3
                 if messages:
                     for log in messages:
                         # Step 1.4
                         print(log.group(1))
-                        print(log.group(2))
-                        print(log.group(0))
+                        # print(log.group(2))
+                        # print(log.group(0))
             device.close()
         except Exception as e:
             print("Uh oh! We had a problem retrieving the messages log file.")
