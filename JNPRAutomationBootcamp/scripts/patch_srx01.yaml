@@ -1,0 +1,27 @@
+---
+  ###########################################################
+  #           Playbook to deploy Jinja2 templates           #
+  ###########################################################
+  - name: Deploy Junos configurations from templates
+    hosts: SRX01
+    roles:
+      - Juniper.junos
+    connection: local
+    gather_facts: no
+
+    vars_prompt:
+      - name: USERNAME
+        prompt: User name
+        private: no
+      - name: DEVICE_PASSWORD
+        prompt: Device password
+        private: yes
+
+
+    tasks:
+      - name: Deploy configuration to R1
+        junos_install_config:
+          host={{ inventory_hostname }}
+          user={{ USERNAME }}
+          passwd={{ DEVICE_PASSWORD }}
+          file="srx01_patch.conf"

@@ -1,0 +1,2 @@
+[SRX01]
+10.11.12.1 ansible_python_interpreter=/home/chuck/.virtualenvs/automation_bootcamp/bin/python
