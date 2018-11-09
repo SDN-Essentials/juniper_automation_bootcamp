@@ -1,0 +1,27 @@
+    <config>
+      <bgp xmlns="http://openconfig.net/yang/bgp">
+        <peer-groups>
+          <peer-group>
+            <peer-group-name>IBGP</peer-group-name>
+            <config>
+              <peer-group-name>IBGP</peer-group-name>
+              <peer-as>65001</peer-as>
+            </config>
+            <transport>
+              <config>
+                <local-address>Loopback16</local-address>
+              </config>
+            </transport>
+          </peer-group>
+        </peer-groups>
+        <neighbors>
+          <neighbor>
+            <neighbor-address>172.16.254.3</neighbor-address>
+            <config>
+              <neighbor-address>172.16.254.3</neighbor-address>
+              <peer-group>IBGP</peer-group>
+            </config>
+          </neighbor>
+        </neighbors>
+      </bgp>
+    </config>

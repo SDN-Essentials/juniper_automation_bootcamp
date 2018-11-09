@@ -1,0 +1,9 @@
+    <software-information>
+        <host-name>SRX01</host-name>
+        <product-model>firefly-perimeter</product-model>
+        <product-name>firefly-perimeter</product-name>
+        <package-information>
+            <name>junos</name>
+            <comment>JUNOS Software Release [12.1X47-D20.7]</comment>
+        </package-information>
+    </software-information>
